@@ -96,10 +96,11 @@ Caso não exista solução, o sistema exibirá uma mensagem de erro.
 - O jogador deve sair do ponto 🏁 e chegar ao ponto 🎯.
 
 - Movimentos permitidos:
-    -cima
-    -baixo
-    -esquerda
-    -direita
+
+    -cima<br>
+    -baixo<br>
+    -esquerda<br>
+    -direita<br>
 
 - Células ⬛ são obstáculos.
 - Células ⬜ são caminhos livres.
