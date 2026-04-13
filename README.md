@@ -13,9 +13,9 @@ Vídeo da Apresentação: <br>
 ---
 
 ## Sobre 
-Este projeto tem como objetivo demonstrar a aplicação prática de algoritmos de grafos na resolução de problemas reais, utilizando como exemplo a resolução de um labirinto interativo.
-O problema do labirinto é modelado como um grafo, onde cada célula livre representa um vértice, e as conexões entre células adjacentes representam arestas com custo unitário. A partir dessa modelagem, é possível aplicar algoritmos de busca para encontrar um caminho entre a entrada e a saída do labirinto.
-Além da representação em grafo, o problema também pode ser interpretado como uma busca em árvore implícita. Cada posição no labirinto corresponde a um estado, e os movimentos possíveis geram novos estados, formando uma árvore de exploração. O algoritmo percorre esses estados até encontrar a solução.
+Este projeto tem como objetivo demonstrar a aplicação prática de algoritmos de grafos na resolução de problemas reais, utilizando como exemplo a resolução de um labirinto interativo.<br>
+O problema do labirinto é modelado como um grafo, onde cada célula livre representa um vértice, e as conexões entre células adjacentes representam arestas com custo unitário. A partir dessa modelagem, é possível aplicar algoritmos de busca para encontrar um caminho entre a entrada e a saída do labirinto. <br>
+Além da representação em grafo, o problema também pode ser interpretado como uma busca em árvore implícita. Cada posição no labirinto corresponde a um estado, e os movimentos possíveis geram novos estados, formando uma árvore de exploração. O algoritmo percorre esses estados até encontrar a solução. <br>
 Para resolver o problema, foi utilizado o algoritmo de Dijkstra, que é responsável por encontrar o caminho de menor custo entre dois pontos em um grafo com pesos não negativos. No contexto do projeto, cada movimento possui custo 1, permitindo encontrar o menor caminho entre a posição inicial e a saída.
 O sistema criado permite ao usuário montar o próprio labirinto de forma interativa e visualizar o caminho encontrado pelo algoritmo, além de informar quando não existe solução possível.
 
@@ -27,25 +27,25 @@ O sistema criado permite ao usuário montar o próprio labirinto de forma intera
 
 Representa o estado inicial do sistema, onde todas as células estão livres. Neste momento, o algoritmo encontra automaticamente o caminho mínimo direto entre o ponto inicial (🏁) e o final (🎯).
 
-![Labirinto vazio](G14_Grafos_PA-26.1/images/lab_inicial.png)
+![Labirinto vazio](images/lab_inicial.png)
 
 ### Labirinto com Obstáculos Criados pelo Usuário
 
 Mostra o labirinto após a interação do usuário, onde algumas células foram transformadas em obstáculos (⬛). Isso altera o grafo e força o algoritmo a buscar caminhos alternativos.
 
-![Labirinto com obstáculos](G14_Grafos_PA-26.1/images/caminho_usuario.png) 
+![Labirinto com obstáculos](images/caminho_usuario.png) 
 
 ### Resultado com Caminho Encontrado
 
 Exibe o resultado da execução do algoritmo de Dijkstra, destacando o caminho encontrado (🟦) entre o início e o fim, além do custo total da rota.
 
-![Caminho encontrado](G14_Grafos_PA-26.1/images/caminho_encontrado.png)
+![Caminho encontrado](images/caminho_encontrado.png)
 
 ### Caso sem Solução
 
 Demonstra um cenário onde não existe caminho possível entre o ponto inicial e o final devido aos obstáculos. O sistema identifica essa condição e informa ao usuário.
 
-![Sem solução](G14_Grafos_PA-26.1/images/sem_caminho.png)
+![Sem solução](images/sem_caminho.png)
 
 ---
 
@@ -113,7 +113,7 @@ O algoritmo de Dijkstra foi escolhido por ser adequado para encontrar caminhos m
 ```bash
 G28-Busca-EDA2-26.1/
 ├── lab.py         # Interface interativa do projeto  
-|  
+├
 ├── logic.py       # Implementação do algoritmo de Dijkstra.
                    # Contém a lógica de busca no grafo, cálculo das distâncias mínimas
                    # e reconstrução do caminho entre o ponto inicial e o final.
