@@ -161,11 +161,11 @@ Tipos de células:
 Para editar o labirinto, basta clicar nos quadradinhos (vértices).
 Cada clique muda o tipo de terreno na seguinte ordem:
 
-1️1 clique → ⬛ Parede (bloqueia o caminho)
-2️ cliques → 🌿 Grama (custo 2)
-3️ cliques → 🟨 Areia (custo 3)
-4️ cliques → 💧 Água (custo 5)
-5️ cliques → ⬜ Livre (volta ao normal)
+- 1 clique → ⬛ Parede (bloqueia o caminho)<br>
+- 2 cliques → 🌿 Grama (custo 2)<br>
+- 3 cliques → 🟨 Areia (custo 3)<br>
+- 4 cliques → 💧 Água (custo 5)<br>
+- 5 cliques → ⬜ Livre (volta ao normal)<br>
 
 Ou seja: é só ir clicando na célula que ela vai alternando entre os tipos.
 
@@ -173,7 +173,7 @@ Ou seja: é só ir clicando na célula que ela vai alternando entre os tipos.
 
 Se você não quiser montar manualmente, pode clicar no botão:
 
- "Criar mapa aleatório"
+- "Criar mapa aleatório"
 
 Isso gera automaticamente um labirinto com:
 
@@ -186,17 +186,17 @@ Perfeito para testar rapidamente o algoritmo em diferentes cenários.
 
 Para limpar tudo e começar do zero, basta clicar no botão:
 
-"Zerar labirinto"
+- "Zerar labirinto"
 
 Isso remove todos os obstáculos e terrenos especiais, deixando apenas células livres.
 
 ### Observações importantes
-🏁 Início e 🎯 destino não podem ser alterados
-⬛ Paredes bloqueiam o caminho
-🌿🟨💧 aumentam o custo do percurso
+🏁 Início e 🎯 destino não podem ser alterados<br>
+⬛ Paredes bloqueiam o caminho<br>
+🌿🟨💧 aumentam o custo do percurso<br>
 <br>
-O algoritmo busca o menor custo, não necessariamente o menor caminho em número de passos
-Cada movimento possui um custo associado, dependendo do terreno da célula de destino.]
+O algoritmo busca o menor custo, não necessariamente o menor caminho em número de passos.<br>
+Cada movimento possui um custo associado, dependendo do terreno da célula de destino.
 
 ## Justificativa do algoritmo
 
@@ -207,7 +207,6 @@ O algoritmo de Dijkstra foi escolhido por ser adequado para encontrar caminhos m
 ```bash
 G14_Grafos_PA-26.1 /
 ├── lab.py         # Interface interativa do projeto  
-|
 ├── logic.py       # Implementação do algoritmo de Dijkstra.
                    # Contém a lógica de busca no grafo, cálculo das distâncias mínimas
                    # e reconstrução do caminho entre o ponto inicial e o final.
