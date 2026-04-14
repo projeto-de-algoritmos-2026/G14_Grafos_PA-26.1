@@ -14,11 +14,17 @@ with tab1:
     START = (0, 0)
     END = (SIZE - 1, SIZE - 1)
 
-    # Inicializa o labirinto
+    TERRAIN = {
+        0: {"emoji": "⬜", "cost": 1},   
+        1: {"emoji": "⬛", "cost": None},
+        2: {"emoji": "🌿", "cost": 2},   
+        3: {"emoji": "🟨", "cost": 3},   
+        4: {"emoji": "💧", "cost": 5},   
+    }
+
     if "maze" not in st.session_state:
         st.session_state.maze = np.zeros((SIZE, SIZE), dtype=int)
 
-    # Botões de controle
     col1, col2 = st.columns(2)
 
     with col1:
@@ -27,34 +33,39 @@ with tab1:
             st.rerun()
 
     with col2:
-        if st.button("Criar paredes aleatórias"):
+        if st.button("Criar mapa aleatório"):
             maze = np.zeros((SIZE, SIZE), dtype=int)
             for r in range(SIZE):
                 for c in range(SIZE):
                     if (r, c) not in [START, END]:
-                        if np.random.rand() < 0.3:  # 30% de chance de parede
-                            maze[r, c] = 1
+                        if np.random.rand() < 0.3:
+                            maze[r, c] = np.random.choice([1, 2, 3, 4])
             st.session_state.maze = maze
             st.rerun()
 
-    # Garante que início e fim nunca sejam paredes
     st.session_state.maze[START] = 0
     st.session_state.maze[END] = 0
 
-    # Monta o grafo com base nas células livres
     grid_grafo = {}
     for r in range(SIZE):
         for c in range(SIZE):
-            if st.session_state.maze[r, c] == 0:
+            tipo = st.session_state.maze[r, c]
+
+            if tipo != 1:  
                 vizinhos = []
                 for dr, dc in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
                     nr, nc = r + dr, c + dc
+
                     if 0 <= nr < SIZE and 0 <= nc < SIZE:
-                        if st.session_state.maze[nr, nc] == 0:
-                            vizinhos.append(((nr, nc), 1))
+                        tipo_vizinho = st.session_state.maze[nr, nc]
+
+                        if tipo_vizinho != 1:
+                            custo = TERRAIN[tipo_vizinho]["cost"]
+                            vizinhos.append(((nr, nc), custo))
+
                 grid_grafo[(r, c)] = vizinhos
 
-    st.subheader("Monte seu labirinto")
+    st.subheader("Monte seu labirinto (clique para mudar o terreno)")
     cols = st.columns(SIZE)
 
     for r in range(SIZE):
@@ -64,29 +75,40 @@ with tab1:
                     label = "🏁"
                 elif (r, c) == END:
                     label = "🎯"
-                elif st.session_state.maze[r, c] == 1:
-                    label = "⬛"
                 else:
-                    label = "⬜"
+                    tipo = st.session_state.maze[r, c]
+                    label = TERRAIN[tipo]["emoji"]
 
-                # Impede clicar no início e no fim
                 disabled = (r, c) == START or (r, c) == END
 
                 if st.button(label, key=f"m-{r}-{c}", disabled=disabled):
-                    st.session_state.maze[r, c] = 1 - st.session_state.maze[r, c]
+                    # Cicla entre os terrenos
+                    st.session_state.maze[r, c] = (st.session_state.maze[r, c] + 1) % 5
                     st.rerun()
 
-    # Executa Dijkstra
     path, cost = dijkstra(grid_grafo, START, END)
 
     st.subheader("Resultado")
 
+    # Legenda
+    st.markdown("""         
+    **Legenda:**
+                
+    ⬜ Normal (1)  
+    🌿 Grama (2)  
+    🟨 Areia (3)  
+    💧 Água (5)  
+    ⬛ Parede  
+    """)
+
     if path:
         st.success(f"Caminho encontrado com custo total = {cost}")
+
         for r in range(SIZE):
             row = ""
             for c in range(SIZE):
                 pos = (r, c)
+
                 if pos == START:
                     row += "🏁"
                 elif pos == END:
@@ -96,14 +118,18 @@ with tab1:
                 elif pos in path:
                     row += "🟦"
                 else:
-                    row += "⬜"
+                    tipo = st.session_state.maze[r, c]
+                    row += TERRAIN[tipo]["emoji"]
+
             st.text(row)
     else:
-        st.error("Não existe caminho possível entre a entrada e a saída.")
+        st.error("Não existe caminho possível.")
+
         for r in range(SIZE):
             row = ""
             for c in range(SIZE):
                 pos = (r, c)
+
                 if pos == START:
                     row += "🏁"
                 elif pos == END:
@@ -111,5 +137,7 @@ with tab1:
                 elif st.session_state.maze[r, c] == 1:
                     row += "⬛"
                 else:
-                    row += "⬜"
+                    tipo = st.session_state.maze[r, c]
+                    row += TERRAIN[tipo]["emoji"]
+
             st.text(row)
