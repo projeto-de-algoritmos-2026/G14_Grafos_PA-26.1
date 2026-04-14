@@ -82,7 +82,6 @@ with tab1:
                 disabled = (r, c) == START or (r, c) == END
 
                 if st.button(label, key=f"m-{r}-{c}", disabled=disabled):
-                    # Cicla entre os terrenos
                     st.session_state.maze[r, c] = (st.session_state.maze[r, c] + 1) % 5
                     st.rerun()
 
@@ -90,11 +89,10 @@ with tab1:
 
     st.subheader("Resultado")
 
-    # Legenda
     st.markdown("""         
     **Legenda:**
                 
-    ⬜ Normal (1)  
+    ⬜ Livre (1)  
     🌿 Grama (2)  
     🟨 Areia (3)  
     💧 Água (5)  
