@@ -2,7 +2,7 @@
 
 Número da Dupla: 14<br>
 Conteúdo da Disciplina: Grafo<br>
-Vídeo da Apresentação: <br>
+Vídeo da Apresentação: (https://youtu.be/De6rwbIhTv8)
 
 ## Alunas
 |Matrícula | Aluna |
