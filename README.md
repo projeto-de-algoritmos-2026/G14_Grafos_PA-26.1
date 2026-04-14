@@ -4,8 +4,8 @@ Número da Dupla: 14<br>
 Conteúdo da Disciplina: Grafo<br>
 Vídeo da Apresentação: <br>
 
-## Alunos
-|Matrícula | Aluno |
+## Alunas
+|Matrícula | Aluna |
 | -- | -- |
 | 231026840 |  Laryssa Félix |
 | 231027005  |  Maria Samara |
