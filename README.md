@@ -25,6 +25,8 @@ O labirinto é modelado como um **grafo**, no qual:
 - As conexões entre células adjacentes (cima, baixo, esquerda e direita) representam **arestas**
 - Cada aresta possui um **peso**, que neste projeto é representado por:
 
+<div align="center">
+    
 | Terreno | Representação | Peso |
 |--------|-------------|------|
 | Parede | ⬛ | 0 |
@@ -32,6 +34,8 @@ O labirinto é modelado como um **grafo**, no qual:
 | Grama  | 🌿 | 2 |
 | Areia  | 🟨 | 3 |
 | Água   | 💧 | 5 |
+
+</div>
 
 Essa modelagem transforma o labirinto em um problema clássico de busca em grafos, permitindo aplicar algoritmos para encontrar um caminho mais barato entre a entrada e a saída do labirinto.<br>
 
@@ -146,7 +150,8 @@ Caso não exista solução, o sistema exibirá uma mensagem de erro.
     -baixo<br>
     -esquerda<br>
     -direita<br>
-
+<div align="center">
+    
 Tipos de células:
 | Terreno | Representação | Peso |
 |--------|-------------|------|
@@ -155,6 +160,8 @@ Tipos de células:
 | Grama  | 🌿 | 2 |
 | Areia  | 🟨 | 3 |
 | Água   | 💧 | 5 |
+
+</div>
 
 ### Como montar o labirinto
 
