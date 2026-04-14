@@ -186,7 +186,7 @@ Perfeito para testar rapidamente o algoritmo em diferentes cenários.
 
 Para limpar tudo e começar do zero, basta clicar no botão:
 
-- "Zerar labirinto"
+- "Resetar labirinto"
 
 Isso remove todos os obstáculos e terrenos especiais, deixando apenas células livres.
 
