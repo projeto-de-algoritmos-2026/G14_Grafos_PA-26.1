@@ -1,6 +1,6 @@
 # G14_Grafos_PA-26.1 
 
-Número da Lista: 14<br>
+Número da Dupla: 14<br>
 Conteúdo da Disciplina: Grafo<br>
 Vídeo da Apresentação: <br>
 
