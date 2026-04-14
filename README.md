@@ -115,7 +115,7 @@ O algoritmo de Dijkstra foi escolhido por ser adequado para encontrar caminhos m
 ## Estrutura do Projeto
 
 ```bash
-G28-Busca-EDA2-26.1/
+G14_Grafos_PA-26.1 /
 ├── lab.py         # Interface interativa do projeto  
 |
 ├── logic.py       # Implementação do algoritmo de Dijkstra.
