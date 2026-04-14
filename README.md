@@ -23,29 +23,38 @@ O labirinto é modelado como um **grafo**, no qual:
 
 - Cada célula livre representa um **vértice**
 - As conexões entre células adjacentes (cima, baixo, esquerda e direita) representam **arestas**
-- Cada aresta possui um **peso**, que neste projeto é igual a 1
+- Cada aresta possui um **peso**, que neste projeto é representado por:
 
-Essa modelagem transforma o labirinto em um problema clássico de busca em grafos, permitindo aplicar algoritmos para encontrar um caminho entre a entrada e a saída do labirinto.<br>
+| Terreno | Representação | Peso |
+|--------|-------------|------|
+| Parede | ⬛ | 0 |
+| Livre  | ⬜ | 1 |
+| Grama  | 🌿 | 2 |
+| Areia  | 🟨 | 3 |
+| Água   | 💧 | 5 |
+
+Essa modelagem transforma o labirinto em um problema clássico de busca em grafos, permitindo aplicar algoritmos para encontrar um caminho mais barato entre a entrada e a saída do labirinto.<br>
 
 Além da representação em grafo, o problema também pode ser interpretado como uma busca em árvore implícita. Cada posição no labirinto corresponde a um estado, e os movimentos possíveis geram novos estados, formando uma árvore de exploração. O algoritmo percorre esses estados até encontrar a solução. <br>
 
 ### Algoritmo Utilizado: Dijkstra
 
-Para resolver o problema, foi utilizado o **algoritmo de Dijkstra**, amplamente utilizado para encontrar o menor caminho em grafos com pesos não negativos.
+Para resolver o problema, foi utilizado o **algoritmo de Dijkstra**, amplamente utilizado para encontrar o caminho de menor custo em grafos com pesos não negativos.
 
 O funcionamento do algoritmo pode ser resumido em:
 
 - Inicializa todas as distâncias como infinito
 - Define a distância do ponto inicial como 0
 - Utiliza uma **fila de prioridade (heap)** para sempre explorar o nó com menor custo acumulado
-- Atualiza as distâncias dos vizinhos sempre que encontra um caminho mais curto
+- Atualiza as distâncias dos vizinhos sempre que encontra um caminho de menor custo
 - Continua o processo até alcançar o destino
 
 No contexto do labirinto:
 
-- O algoritmo percorre as células livres
-- Calcula o menor custo até cada posição
-- Garante que o caminho encontrado até a saída seja o mais eficiente possível
+- O algoritmo percorre as células livres, modeladas como vértices de um grafo ponderado
+- Cada movimento entre células possui um custo associado, de acordo com o tipo de terreno
+- O algoritmo calcula o menor custo acumulado até cada posição
+- Garante que o caminho encontrado até a saída seja o mais eficiente possível e que o caminho encontrado até a saída seja o de menor custo total, mesmo que não seja o mais curto em número de passos
 
 
 ### Funcionamento do Sistema
@@ -70,7 +79,7 @@ Representa o estado inicial do sistema, onde todas as células estão livres. Ne
 
 ### Labirinto com Obstáculos Criados pelo Usuário
 
-Mostra o labirinto após a interação do usuário, onde algumas células foram transformadas em obstáculos (⬛). Isso altera o grafo e força o algoritmo a buscar caminhos alternativos.
+Mostra o labirinto após a interação do usuário, onde algumas células foram transformadas em obstáculos (⬛, ⬜, 🌿, 🟨, 💧). Isso altera o grafo e força o algoritmo a buscar caminhos alternativos.
 
 ![Labirinto com obstáculos](images/caminho_usuario.png) 
 
@@ -138,11 +147,20 @@ Caso não exista solução, o sistema exibirá uma mensagem de erro.
     -esquerda<br>
     -direita<br>
 
-- Células ⬛ são obstáculos.
-- Células ⬜ são caminhos livres.
-- Cada movimento tem custo 1.
-- O algoritmo busca o menor caminho possível.
-- O início e o fim não podem ser bloqueados.
+Tipos de células:
+| Terreno | Representação | Peso |
+|--------|-------------|------|
+| Parede | ⬛ | 0 |
+| Livre  | ⬜ | 1 |
+| Grama  | 🌿 | 2 |
+| Areia  | 🟨 | 3 |
+| Água   | 💧 | 5 |
+
+Cada movimento possui um custo associado, dependendo do terreno da célula de destino.
+
+O algoritmo busca o caminho de menor custo total, que pode não ser o menor em número de passos.
+
+O início e o fim não podem ser bloqueados.
 
 ## Justificativa do algoritmo
 
