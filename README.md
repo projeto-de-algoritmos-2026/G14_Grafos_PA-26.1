@@ -13,14 +13,50 @@ Vídeo da Apresentação: <br>
 ---
 
 ## Sobre 
-Este projeto tem como objetivo demonstrar a aplicação prática de algoritmos de grafos na resolução de problemas reais, utilizando como exemplo a resolução de um labirinto interativo.<br>
+Este projeto tem como objetivo demonstrar a aplicação prática de algoritmos de grafos, utilizando como exemplo a resolução de um labirinto interativo.<br>
 
-O problema do labirinto é modelado como um grafo, onde cada célula livre representa um vértice, e as conexões entre células adjacentes representam arestas com custo unitário. A partir dessa modelagem, é possível aplicar algoritmos de busca para encontrar um caminho entre a entrada e a saída do labirinto. <br>
+O sistema criado permite ao usuário montar o próprio labirinto de forma interativa e visualizar o caminho encontrado pelo algoritmo, além de informar quando não existe solução possível.
+
+### Modelagem do Problema
+
+O labirinto é modelado como um **grafo**, no qual:
+
+- Cada célula livre representa um **vértice**
+- As conexões entre células adjacentes (cima, baixo, esquerda e direita) representam **arestas**
+- Cada aresta possui um **peso**, que neste projeto é igual a 1
+
+Essa modelagem transforma o labirinto em um problema clássico de busca em grafos, permitindo aplicar algoritmos para encontrar um caminho entre a entrada e a saída do labirinto.<br>
 
 Além da representação em grafo, o problema também pode ser interpretado como uma busca em árvore implícita. Cada posição no labirinto corresponde a um estado, e os movimentos possíveis geram novos estados, formando uma árvore de exploração. O algoritmo percorre esses estados até encontrar a solução. <br>
 
-Para resolver o problema, foi utilizado o algoritmo de Dijkstra, que é responsável por encontrar o caminho de menor custo entre dois pontos em um grafo com pesos não negativos. No contexto do projeto, cada movimento possui custo 1, permitindo encontrar o menor caminho entre a posição inicial e a saída.
-O sistema criado permite ao usuário montar o próprio labirinto de forma interativa e visualizar o caminho encontrado pelo algoritmo, além de informar quando não existe solução possível.
+### Algoritmo Utilizado: Dijkstra
+
+Para resolver o problema, foi utilizado o **algoritmo de Dijkstra**, amplamente utilizado para encontrar o menor caminho em grafos com pesos não negativos.
+
+O funcionamento do algoritmo pode ser resumido em:
+
+- Inicializa todas as distâncias como infinito
+- Define a distância do ponto inicial como 0
+- Utiliza uma **fila de prioridade (heap)** para sempre explorar o nó com menor custo acumulado
+- Atualiza as distâncias dos vizinhos sempre que encontra um caminho mais curto
+- Continua o processo até alcançar o destino
+
+No contexto do labirinto:
+
+- O algoritmo percorre as células livres
+- Calcula o menor custo até cada posição
+- Garante que o caminho encontrado até a saída seja o mais eficiente possível
+
+
+### Funcionamento do Sistema
+
+O sistema desenvolvido permite:
+
+- Criar um labirinto de forma interativa
+- Adicionar e remover obstáculos
+- Visualizar o caminho encontrado pelo algoritmo
+- Exibir o custo total do caminho
+- Identificar quando não existe solução possível
 
 ---
 
