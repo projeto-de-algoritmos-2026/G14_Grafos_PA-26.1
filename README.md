@@ -156,11 +156,47 @@ Tipos de células:
 | Areia  | 🟨 | 3 |
 | Água   | 💧 | 5 |
 
-Cada movimento possui um custo associado, dependendo do terreno da célula de destino.
+### Como montar o labirinto
 
-O algoritmo busca o caminho de menor custo total, que pode não ser o menor em número de passos.
+Para editar o labirinto, basta clicar nos quadradinhos (vértices).
+Cada clique muda o tipo de terreno na seguinte ordem:
 
-O início e o fim não podem ser bloqueados.
+1️1 clique → ⬛ Parede (bloqueia o caminho)
+2️ cliques → 🌿 Grama (custo 2)
+3️ cliques → 🟨 Areia (custo 3)
+4️ cliques → 💧 Água (custo 5)
+5️ cliques → ⬜ Livre (volta ao normal)
+
+Ou seja: é só ir clicando na célula que ela vai alternando entre os tipos.
+
+### Gerar mapa automaticamente
+
+Se você não quiser montar manualmente, pode clicar no botão:
+
+ "Criar mapa aleatório"
+
+Isso gera automaticamente um labirinto com:
+
+- paredes
+- diferentes tipos de terreno
+
+Perfeito para testar rapidamente o algoritmo em diferentes cenários.
+
+### Resetar o labirinto
+
+Para limpar tudo e começar do zero, basta clicar no botão:
+
+"Zerar labirinto"
+
+Isso remove todos os obstáculos e terrenos especiais, deixando apenas células livres.
+
+### Observações importantes
+🏁 Início e 🎯 destino não podem ser alterados
+⬛ Paredes bloqueiam o caminho
+🌿🟨💧 aumentam o custo do percurso
+<br>
+O algoritmo busca o menor custo, não necessariamente o menor caminho em número de passos
+Cada movimento possui um custo associado, dependendo do terreno da célula de destino.]
 
 ## Justificativa do algoritmo
 
