@@ -150,7 +150,6 @@ Caso não exista solução, o sistema exibirá uma mensagem de erro.
     -baixo<br>
     -esquerda<br>
     -direita<br>
-<div align="center">
     
 Tipos de células:
 | Terreno | Representação | Peso |
@@ -161,7 +160,6 @@ Tipos de células:
 | Areia  | 🟨 | 3 |
 | Água   | 💧 | 5 |
 
-</div>
 
 ### Como montar o labirinto
 
